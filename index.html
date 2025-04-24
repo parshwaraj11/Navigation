@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebAR CSE Navigation</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-ar@1.7.2/aframe-ar.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #enter { position: fixed; top: 10px; left: 10px; z-index: 999; }
+  </style>
+</head>
+<body>
+  <a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;">
+    <a-camera position="0 1.6 0" look-controls-enabled="true"></a-camera>
+
+    <a-image src="floor-plan.png"
+             position="0 0 -2"
+             rotation="-90 0 0"
+             width="2" height="2.5">
+    </a-image>
+
+    <a-entity position="0 0.01 -1">
+      <a-box color="#ff0000" position="0 0.05 0" depth="0.1" height="0.05" width="0.2"></a-box>
+      <a-cone color="#ff0000" position="0 0.05 -0.1" radius-bottom="0.1" radius-top="0" height="0.2"></a-cone>
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
